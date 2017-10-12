@@ -123,7 +123,7 @@ window.SimpleLanding = function (options) {
     }
     setActiveChild(0);
 
-    landingRoot.addEventListener('mousewheel', mouseWheelOnLandingRoot);
+    landingRoot.addEventListener('wheel', mouseWheelOnLandingRoot);
 };
 
 
