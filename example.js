@@ -7,7 +7,7 @@ var landing = new SimpleLanding({
     element: '#my-landing',
     scrollBar:true,
     scrollAnimation:'ease-in',
-    scrollTime: 100,
+    scrollTime: 150,
     scrollStep: 20,
     anchors:[
         'firstPage',
@@ -15,7 +15,7 @@ var landing = new SimpleLanding({
         'thirdPage'
     ],
     autoTransition:false,
-    autoPositionOnCurrentPage:false,
+    autoPositionOnCurrentPage:true,
     onLoad:function(){
         console.log('on load SimpleLanding');
     },

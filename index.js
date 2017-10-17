@@ -33,6 +33,8 @@ window.SimpleLanding = function (options) {
         options.scrollTime = isNum(options.scrollTime) ? options.scrollTime : options.autoTransition && 380 || 120;
         options.scrollAnimation = isStr(options.scrollAnimation) ? options.scrollAnimation : 'ease';
         options.anchors = options.anchors || [];
+        options.percentNextPageWhenStartLoading = isNum(options.percentNextPageWhenStartLoading) ? options.percentNextPageWhenStartLoading : 80;
+        options.percentNextPageWhenStartAutoScrolling = isNum(options.percentNextPageWhenStartAutoScrolling) ? options.percentNextPageWhenStartAutoScrolling : 20;
     })();
 
     var simpleLandingClass = 'simple-landing',
@@ -45,11 +47,8 @@ window.SimpleLanding = function (options) {
     landingRoot.style.transition = 'all ' + options.scrollTime + 'ms ' + options.scrollAnimation;
     var scrollbarThumb = document.createElement('div');
     var childs = landingRoot.children;
-    var anchors = options.anchors;
-    var scrollStep = options.scrollStep;
     var currentScrollValue = 0;
     var maxScroll = (childs.length * 100) - 100;
-    var anchorsChilds = {};
     var activePage = null;
     var pageIsScrolling = false;
 
@@ -61,7 +60,10 @@ window.SimpleLanding = function (options) {
             pageIsScrolling = true;
         }
         currentScrollValue = index * 100;
-        // landingRoot.style.transform = 'translate3d(0px, -' + currentScrollValue + '%, 0px)';
+        if(options.autoTransition || options.autoPositionOnCurrentPage){
+            console.log('asdasd');
+            landingRoot.style.transform = 'translate3d(0px, -' + currentScrollValue + '%, 0px)';
+        }
         childs[index].clAdd('active');
         activePage = index;
 
@@ -82,7 +84,7 @@ window.SimpleLanding = function (options) {
     }
 
     function defaultScroll(scrollUp) {
-        currentScrollValue += scrollStep * (scrollUp && -1 || 1);
+        currentScrollValue += options.scrollStep * (scrollUp && -1 || 1);
         landingRoot.style.transform = 'translate3d(0px, -' + (currentScrollValue < 0 ? 0 : currentScrollValue > maxScroll ? maxScroll : currentScrollValue) + '%, 0px)';
     }
 
@@ -90,8 +92,8 @@ window.SimpleLanding = function (options) {
         for(var x=0;x<childs.length;x++){
                 if(x != activePage && ((scrollUp && x == activePage-1) || (!scrollUp && x == activePage+1))){ //todo добавить еще проверку на то между какими индексами находится активПейдж
                     var correctedYPos = x*100,
-                        halpPageSub = 99,
-                        almostCompletePageSub = 1,
+                        halpPageSub = options.percentNextPageWhenStartLoading,
+                        almostCompletePageSub = options.percentNextPageWhenStartAutoScrolling,
                         halfPage=correctedYPos ?
                             scrollUp &&
                                 correctedYPos + halpPageSub ||
@@ -156,17 +158,36 @@ window.SimpleLanding = function (options) {
     }
 
     for (var x = 0; x < childs.length; x++) {
-        var elementAnchor = anchors[x] || ('page' + x);
+        var elementAnchor = options.anchors[x] || ('page' + x);
         var child = childs[x];
         child.clAdd(simpleLandingChildClass);
         child.clAdd(elementAnchor);
-        anchorsChilds[elementAnchor] = x;
 
         child = null;
     }
     setActiveChild(0);
+    var scroll = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        // IE Fallback, you can even fallback to onscroll
+        function(callback){ window.setTimeout(callback, 1000/60) };
 
-    landingRoot.addEventListener('wheel', mouseWheelOnLandingRoot);
+    function loop(){
+
+        var top = window.pageYOffset;
+        console.log('top',top);
+        // Where the magic goes
+        // ...
+
+        // Recall the loop
+        scroll( loop )
+    }
+
+// Call the loop for the first time
+//     loop();
+    document.body.addEventListener('wheel', mouseWheelOnLandingRoot);
 };
 
 

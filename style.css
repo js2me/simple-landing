@@ -13,16 +13,26 @@
     background-size: cover;
 }
 .green{
-    background: rgba(1, 255, 0, 0.25);
+    background: rgba(1, 255, 0, 0.75);
 }
 .red{
-    background: rgba(255, 0, 21, 0.25);
+    background: rgba(255, 0, 21, 0.75);
 }
 .yellow{
-    background: rgba(255, 253, 0, 0.25);
+    background: rgba(255, 253, 0, 0.75);
 }
 .simple-landing__container:not(.loaded) .loaded-container{
     display: none;
+}
+.simple-landing__container{
+    transition:opacity 250ms ease;
+    opacity: .2;
+}
+.simple-landing__container.start-loading{
+    opacity: .6;
+}
+.simple-landing__container.loaded{
+    opacity: 1;
 }
 .loaded-container {
     width: 100%;
