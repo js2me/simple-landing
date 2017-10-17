@@ -1,0 +1,54 @@
+/*body, .simple-landing, html {*/
+    /*margin:0;padding:0;position:relative;width: 100%;height: 100%;*/
+/*}*/
+.simple-landing {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    padding: 0;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.simple-landing-wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    height: 100% !important;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.simple-landing__container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.simple-landing-viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.simple-landing__scrollbar {
+    width: 17px;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.05);
+    top:0;
+}
+
+.simple-landing__scrollbar-track {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.simple-landing__scrollbar-thumb {width: 15px;height: 20%;top: 0;position: absolute;background: red;}

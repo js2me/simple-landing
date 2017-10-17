@@ -6,17 +6,18 @@
 var landing = new SimpleLanding({
     element: '#my-landing',
     scrollBar:true,
-    scrollAnimation:'ease-in-out',
+    scrollAnimation:'ease-in',
     scrollTime: 100,
-    scrollStep: 10,
+    scrollStep: 20,
     anchors:[
         'firstPage',
         'secondPage',
-        'thirdPage',
-        'fourthPage'
+        'thirdPage'
     ],
     autoTransition:false,
     autoPositionOnCurrentPage:false,
-    onLoad:function(){},
+    onLoad:function(){
+        console.log('on load SimpleLanding');
+    },
     onScroll:function(){}
 });
