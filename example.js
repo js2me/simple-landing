@@ -5,16 +5,16 @@
 
 var landing = new SimpleLanding({
     element: '#my-landing',
-    scrollBar:true,
+    scrollBar:false,
     scrollAnimation:'ease-in',
-    scrollTime: 150,
+    scrollTime: 340,
     scrollStep: 20,
     anchors:[
-        'firstPage',
-        'secondPage',
-        'thirdPage'
+        'mainPage',
+        'heroesPage',
+        'streamsPage'
     ],
-    autoTransition:false,
+    autoTransition:true,
     autoPositionOnCurrentPage:true,
     onLoad:function(){
         console.log('on load SimpleLanding');

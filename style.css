@@ -4,51 +4,74 @@
 
 
 body{
-    background: #ffbed9;
+    background: black;
 }
-/*not for library*/
 .wrapper {
     width: 100%;
     height: 100%;
 }
-.simple-landing__container{
-    transition:opacity 250ms ease;
-    opacity: .2;
-    background: #ffd5e7;
+.mainPage{
+    /*background-image: url('mainPage.jpg');*/
+    /*background-size: cover;*/
 }
-.simple-landing__container.start-loading{
-    opacity: 0.5;
-}
-.simple-landing__container.loaded{
-    opacity: 1;
-    background: #ffbed9;
-}
-
-.simple-landing__container:not(.start-loading) .loaded-container{
-    /* display: none; */
-    font-size: 0;
-}
-.loaded-container {
-    width: 100%;
-    height: 100%;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    color: rgba(0, 0, 0, 0.31);
-    transition: font-size 250ms ease-in;
-}
-.loaded-container span {
-    background: black;
-    color: white;
-    font-size: 45px;
-    font-family: monospace;
+img.mainPageBackground {
+    width: auto;
+    height: auto;
+    min-height: 100%;
     position: absolute;
-    top: 5%;
-    right: 25%;
-    padding: 0 0;
-    transition: all 350ms ease-in-out;
+    left: -9.5%;
+    max-width: 110%;
 }
-.simple-landing__container.loaded > .loaded-container > span {
-    font-size: 83px;
-    top: 39%;
+@keyframes game-logo-animation {
+    0%{
+        transform: translateY(85px) scale(1.4);
+    }
+    50%{
+        transform: translateY(96px) scale(1.55);
+    }
+    100%{
+        transform: translateY(85px) scale(1.4);
+    }
 }
+.game-logo {
+    position: relative;
+    width: 20%;
+    left: 40%;
+    top: 0;
+    transform: translateY(-85px) scale(0);
+    z-index: 2;
+    transition: all 450ms ease;
+}
+.mainPage.loaded .game-logo {
+    transform: translateY(85px) scale(1.4);
+    animation-name: game-logo-animation;
+    animation-duration: 10s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+/*.highlighters {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*background: rgba(0, 0, 0, 0.12);*/
+    /*box-shadow: inset 0 0 106px 50px black;*/
+/*}*/
+
+/*.highligher {*/
+    /*position: absolute;*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*background: transparent;*/
+/*}*/
+/*.shooter-eye1{*/
+    /*top: 42.45%;*/
+    /*left: 14.2%;*/
+    /*box-shadow: 0 0 25px 4px #27ff00;*/
+/*}*/
+/*.shooter-eye2 {*/
+    /*top: 35.45%;*/
+    /*left: 20.6%;*/
+    /*box-shadow: 0 0 25px 4px #27ff00;*/
+/*}*/
