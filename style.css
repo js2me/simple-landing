@@ -22,56 +22,71 @@ img.mainPageBackground {
     left: -9.5%;
     max-width: 110%;
 }
-@keyframes game-logo-animation {
-    0%{
-        transform: translateY(85px) scale(1.4);
-    }
-    50%{
-        transform: translateY(96px) scale(1.55);
-    }
-    100%{
-        transform: translateY(85px) scale(1.4);
-    }
-}
+/*@keyframes game-logo-animation {*/
+/*0%{*/
+/*transform: translateY(85px) scale(1.4);*/
+/*}*/
+/*50%{*/
+/*transform: translateY(96px) scale(1.55);*/
+/*}*/
+/*100%{*/
+/*transform: translateY(85px) scale(1.4);*/
+/*}*/
+/*}*/
 .game-logo {
     position: relative;
-    width: 20%;
+    width: 52%;
     left: 40%;
     top: 0;
     transform: translateY(-85px) scale(0);
     z-index: 2;
     transition: all 450ms ease;
 }
+.wrapper .header{
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.1);
+    transition: all 250ms ease-in;
+}
+body.mainPage-is-active .header {
+    transform: translateY(-100%);
+}
+.header .game-logo{
+    width:20%;
+}
 .mainPage.loaded .game-logo {
     transform: translateY(85px) scale(1.4);
-    animation-name: game-logo-animation;
-    animation-duration: 10s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
+    /*animation-iteration-count: infinite;*/
+}
+.mainPage {
+    background: white;
 }
 /*.highlighters {*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*background: rgba(0, 0, 0, 0.12);*/
-    /*box-shadow: inset 0 0 106px 50px black;*/
+/*position: absolute;*/
+/*left: 0;*/
+/*top: 0;*/
+/*height: 100%;*/
+/*width: 100%;*/
+/*background: rgba(0, 0, 0, 0.12);*/
+/*box-shadow: inset 0 0 106px 50px black;*/
 /*}*/
 
 /*.highligher {*/
-    /*position: absolute;*/
-    /*width: 0;*/
-    /*height: 0;*/
-    /*background: transparent;*/
+/*position: absolute;*/
+/*width: 0;*/
+/*height: 0;*/
+/*background: transparent;*/
 /*}*/
 /*.shooter-eye1{*/
-    /*top: 42.45%;*/
-    /*left: 14.2%;*/
-    /*box-shadow: 0 0 25px 4px #27ff00;*/
+/*top: 42.45%;*/
+/*left: 14.2%;*/
+/*box-shadow: 0 0 25px 4px #27ff00;*/
 /*}*/
 /*.shooter-eye2 {*/
-    /*top: 35.45%;*/
-    /*left: 20.6%;*/
-    /*box-shadow: 0 0 25px 4px #27ff00;*/
+/*top: 35.45%;*/
+/*left: 20.6%;*/
+/*box-shadow: 0 0 25px 4px #27ff00;*/
 /*}*/

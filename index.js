@@ -51,7 +51,6 @@ window.SimpleLanding = function (options) {
     var maxScroll = (childs.length * 100) - 100;
     var activePage = null;
     var pageIsScrolling = false;
-
     function setActiveChild(index) {
         if (activePage !== null) {
             childs[activePage].clRm('loaded');
@@ -65,8 +64,11 @@ window.SimpleLanding = function (options) {
             landingRoot.style.transform = 'translate3d(0px, -' + currentScrollValue + '%, 0px)';
         }
         childs[index].clAdd('active');
+        if(activePage !== null){
+            document.body.classList.remove(childs[activePage].getAttribute('data-anchor') + '-is-active');
+        }
         activePage = index;
-
+        document.body.classList.add(childs[index].getAttribute('data-anchor') + '-is-active');
         if (activePage !== null) {
             setTimeout(function () {
                 childs[index].clRm('loading');
@@ -162,7 +164,7 @@ window.SimpleLanding = function (options) {
         var child = childs[x];
         child.clAdd(simpleLandingChildClass);
         child.clAdd(elementAnchor);
-
+        child.setAttribute('data-anchor',elementAnchor);
         child = null;
     }
     setActiveChild(0);
