@@ -5,7 +5,7 @@
 
 var landing = new SimpleLanding({
     element: '#my-landing',
-    scrollBar:false,
+    scrollBar:true,
     scrollAnimation:'ease-in',
     scrollTime: 340,
     scrollStep: 20,

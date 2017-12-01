@@ -64,29 +64,3 @@ body.mainPage-is-active .header {
 .mainPage {
     background: white;
 }
-/*.highlighters {*/
-/*position: absolute;*/
-/*left: 0;*/
-/*top: 0;*/
-/*height: 100%;*/
-/*width: 100%;*/
-/*background: rgba(0, 0, 0, 0.12);*/
-/*box-shadow: inset 0 0 106px 50px black;*/
-/*}*/
-
-/*.highligher {*/
-/*position: absolute;*/
-/*width: 0;*/
-/*height: 0;*/
-/*background: transparent;*/
-/*}*/
-/*.shooter-eye1{*/
-/*top: 42.45%;*/
-/*left: 14.2%;*/
-/*box-shadow: 0 0 25px 4px #27ff00;*/
-/*}*/
-/*.shooter-eye2 {*/
-/*top: 35.45%;*/
-/*left: 20.6%;*/
-/*box-shadow: 0 0 25px 4px #27ff00;*/
-/*}*/

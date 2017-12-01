@@ -1,6 +1,14 @@
 /*body, .simple-landing, html {*/
-    /*margin:0;padding:0;position:relative;width: 100%;height: 100%;*/
+/*margin:0;padding:0;position:relative;width: 100%;height: 100%;*/
 /*}*/
+body, html {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
 .simple-landing {
     width: 100%;
     height: 100%;
@@ -12,7 +20,8 @@
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
-.simple-landing-wrapper{
+
+.simple-landing-wrapper {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -22,13 +31,12 @@
     overflow: hidden;
 }
 
-.simple-landing__container{
+.simple-landing__container {
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
 }
-
 
 .simple-landing-viewer {
     position: absolute;
@@ -43,7 +51,7 @@
     height: 100%;
     z-index: 1;
     background: rgba(0, 0, 0, 0.05);
-    top:0;
+    top: 0;
 }
 
 .simple-landing__scrollbar-track {
@@ -51,4 +59,13 @@
     height: 100%;
     padding: 0;
 }
-.simple-landing__scrollbar-thumb {width: 15px;height: 20%;top: 0;position: absolute;background: red;}
+
+.simple-landing__scrollbar-thumb {
+    width: 15px;
+    height: 20%;
+    top: 0;
+    position: absolute;
+    background: rgba(48, 48, 48, 0.85);
+    border-radius: 4px;
+    transition: top 250ms ease;
+}
